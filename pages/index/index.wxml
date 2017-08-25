@@ -1,26 +1,162 @@
 <!--index.wxml-->
+<!--
 <view class="container">
+  
   <view  bindtap="bindViewTap" class="userinfo">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     <text class="userinfo-nickname">{{userInfo.nickName}}</text>
   </view>
-  <view class="weui-panel weui-panel_access">
-    <view class="weui-panel__hd">最新活动</view>
-      <view class="weui-panel__bd">
-          <view class="weui-media-box weui-media-box_text" bindtap="bindActivityTap" id="1">
-            <view class="weui-media-box__title weui-media-box__title_in-text">香山长跑</view>
-            <view class="weui-media-box__desc">这是一个十多公里的迷你马拉松。从北大到香山，难得的长跑体验，你值得拥有。</view>
-          </view>
-          <view class="weui-media-box weui-media-box_text" bindtap="bindActivityTap" id="2">
-            <view class="weui-media-box__title weui-media-box__title_in-text">阳台山拉练</view>
-            <view class="weui-media-box__desc">朋友，你体验过绝望吗？欢迎参加阳台山拉练。</view>
-          </view>
-      </view>
-      <view class="weui-panel__ft">
-          <view class="weui-cell weui-cell_access weui-cell_link">
-            <view class="weui-cell__bd">查看更多</view>
-            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-          </view>
-      </view>
+  
+  
+</view>
+-->
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-tab">
+            <view class="weui-navbar">
+                <block wx:for-items="{{tabs}}" wx:key="{{index}}">
+                    <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                        <view class="weui-navbar__title">{{item}}</view>
+                    </view>
+                </block>
+                <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+            </view>
+            <view class="weui-tab__panel">
+                <view class="page__bd" hidden="{{activeIndex != 0}}">
+
+
+
+        <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__hd">我的社团</view>
+            <view class="weui-panel__bd">
+                <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                        <image class="weui-media-box__thumb" src="{{icon60}}" />
+                    </view>
+                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class="weui-media-box__title">北大山鹰社</view>
+                    </view>
+                </navigator>
+                <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                        <image class="weui-media-box__thumb" src="{{icon60}}" />
+                    </view>
+                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class="weui-media-box__title">北大教职工户外协会</view>
+                    </view>
+                </navigator>
+            </view>
+            <view class="weui-panel__ft">
+                <view class="weui-cell weui-cell_access weui-cell_link">
+                    <view class="weui-cell__bd">查看更多</view>
+                    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                </view>
+            </view>
+        </view>
+        <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__hd">热门社团</view>
+            <view class="weui-panel__bd">
+                <navigator url="../activity/activity" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                        <image class="weui-media-box__thumb" src="{{icon60}}" />
+                    </view>
+                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class="weui-media-box__title">北大徒协</view>
+                        <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
+                    </view>
+                </navigator>
+                <navigator url="../activity/activity" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                        <image class="weui-media-box__thumb" src="{{icon60}}" />
+                    </view>
+                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class="weui-media-box__title">黑哈俱乐部</view>
+                        <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
+                    </view>
+                </navigator>
+            </view>
+            <view class="weui-panel__ft">
+                <view class="weui-cell weui-cell_access weui-cell_link">
+                    <view class="weui-cell__bd">查看更多</view>
+                    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                </view>
+            </view>
+        </view>
+
+
+
+
+
+                </view>
+                <view class="page__bd" hidden="{{activeIndex != 1}}">
+                
+                
+        <view class="weui-panel weui-panel_access">
+            
+            <view class="weui-panel__bd">
+                <navigator url="../activity/activity" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                        <image class="weui-media-box__thumb" src="{{icon60}}" />
+                    </view>
+                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class="weui-cell__bd">
+                          <view class="weui-media-box__title" style="display: inline-block; vertical-align: middle">东灵山两日穿越</view>
+                          <view class="weui-badge" style="margin-left: 5px;">徒步</view>
+                        </view>
+                        <view class="weui-media-box__desc">时间：2017.x.x-2017.x.x</view>
+                        <view class="weui-media-box__desc">地点：北京东灵山黄草梁路线</view>
+                        <view class="weui-media-box__desc">主办方：北大山鹰社</view>
+                    </view>
+                </navigator>
+            </view>
+
+            <view class="weui-panel__bd">
+                <navigator url="../activity/activity" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                        <image class="weui-media-box__thumb" src="{{icon60}}" />
+                    </view>
+                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class="weui-cell__bd">
+                          <view class="weui-media-box__title" style="display: inline-block; vertical-align: middle">东灵山两日穿越</view>
+                          <view class="weui-badge" style="margin-left: 5px;">登山</view>
+                        </view>
+                        <view class="weui-media-box__desc">时间：2017.x.x-2017.x.x</view>
+                        <view class="weui-media-box__desc">地点：北京东灵山黄草梁路线</view>
+                        <view class="weui-media-box__desc">主办方：北大山鹰社</view>
+                    </view>
+                </navigator>
+            </view>
+
+            <view class="weui-panel__bd">
+                <navigator url="../activity/activity" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                        <image class="weui-media-box__thumb" src="{{icon60}}" />
+                    </view>
+                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class="weui-cell__bd">
+                          <view class="weui-media-box__title" style="display: inline-block; vertical-align: middle">东灵山两日穿越</view>
+                          <view class="weui-badge" style="margin-left: 5px;">滑雪</view>
+                        </view>
+                        <view class="weui-media-box__desc">时间：2017.x.x-2017.x.x</view>
+                        <view class="weui-media-box__desc">地点：北京东灵山黄草梁路线</view>
+                        <view class="weui-media-box__desc">主办方：北大山鹰社</view>
+                    </view>
+                </navigator>
+            </view>
+
+        </view>
+                
+
+
+
+
+ 
+                
+                
+                </view>
+                <view class="weui-tab__content" hidden="{{activeIndex != 2}}">选项三的内容</view>
+            </view>
+        </view>
     </view>
 </view>
+
